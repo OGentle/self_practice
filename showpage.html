@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试用</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+</script>
+</head>
+<body>
+<button>测试按钮</button>
+    
+<div id="start">开始</div>
+    <script>
+    $(function() {
+      $("#start").html("出发吧,骚年!");
+    });
+    </script>
+<div id="div1">ajax测试</div>
+<script>
+  $("button").click(function() {
+    $.ajax({
+      type:'post',
+      url:"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=d9f44f60-c2d6-4c27-b7c0-c95fff4518cb",
+      contentType: "application/json;charset=UTF-8",
+      data:{
+            "msgtype": "text",
+            "text": {
+                "content": "这是一条测试用消息",
+                "mentioned_list": ["wangqing", "@all"],
+                "mentioned_mobile_list": ["@all"]
+            }
+          },
+      success:function(result){
+        console.log(result)
+      },
+      error:function(){
+        alert("failed");
+      }  
+    }     
+    );
+  });
+</script>
+<a href="www.w3cschool.cn">
+   点击这里
+</a>
+</body>
+
+<html>
